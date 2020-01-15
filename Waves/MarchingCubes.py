@@ -317,8 +317,8 @@ def GenerateSingleCubeMesh(array, surfaceValue, xMax, yMax, zMax):
 
     triangulationIndex = point0 | point1 | point2 | point3 | point4 | point5 | point6 | point7
 
-    points = np.empty([3,0], float)
-    faces = np.empty([0,3], float)
+    points = np.empty([0, 3], float)
+    faces = np.empty([0, 3], int)
 
     #Set of edges that create triangles
     pointArray = triangulationTable[triangulationIndex]
@@ -333,12 +333,14 @@ def GenerateSingleCubeMesh(array, surfaceValue, xMax, yMax, zMax):
         trianglePoints = np.array([pointArray[index], pointArray[index+1], pointArray[index+2]])
         for trianglePointIndex in range(trianglePoints.shape[0]):
             trianglePoint = trianglePoints[trianglePointIndex]
+
             #Append 3d point
             trianglePoint3d = triangleToPoint[trianglePoint]
-            points = np.append(points, np.array([trianglePoint3d[0], trianglePoint3d[1], trianglePoint3d[2]]), axis=0)
+            trianglePoint3dStack = [trianglePoint3d[0], trianglePoint3d[1], trianglePoint3d[2]]
+            points = np.vstack([points, trianglePoint3dStack])
 
 
         #Add point indexes to faces
-        np.append(faces, (index, index+1, index+2))
+        faces = np.vstack([faces, [index, index+1, index+2]])
 
     return points, faces

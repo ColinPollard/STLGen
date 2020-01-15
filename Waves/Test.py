@@ -8,7 +8,7 @@ from Waves.SpaceGeneration import CreatePoints, RandomHash
 
 points = np.array([\
 [-1, -1, -1],
-[+1, -1, -1],
+[1, -1, -1],
 [+1, +1, -1],
 [-1, +1, -1],
 [-1, -1, +1],
@@ -31,13 +31,15 @@ faces = np.array([
 [0,5,4]])
 
 
+#Create new space to occupy with mesh
 emptyArray = CreatePoints(2,2,2)
+#Generate point cloud, specifying random min and max
 randomPoints = RandomHash(emptyArray, 0, 16)
-
+#Generate point and face arrays from randomhash
 newPoints, newFaces = GenerateSingleCubeMesh(randomPoints, 8, 2, 2, 2)
 
 
-
+#Construct mesh from points and faces.
 cube = mesh.Mesh(np.zeros(newFaces.shape[0], dtype=mesh.Mesh.dtype))
 for i, f in enumerate(newFaces):
     for j in range(3):
@@ -53,4 +55,5 @@ axes.add_collection3d(mplot3d.art3d.Poly3DCollection(cube.vectors))
 scale = cube.points.flatten('F')
 axes.auto_scale_xyz(scale, scale, scale)
 # Show the plot to the screen
+print(newFaces)
 pyplot.show()
