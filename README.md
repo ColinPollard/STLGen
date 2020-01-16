@@ -4,4 +4,3 @@ This program first creates an empty 3D space of points, and then uses a hashing 
 Requires numpy, numpy-stl (must be installed manually, as the default is the wrong stl library), matplotlib, and mpl_toolkits.
 Inspiration from Sebastian Lague's Coding Adventure.
 ![HorizontalHash Generation](https://github.com/ColinPollard/STLGen/blob/master/ProcessedData/HorizontalHash%20Example.PNG)
-<iframe id="vs_iframe" src="https://www.viewstl.com/?embedded&color=white&edges=yes&bgcolor=darkblue" style="border:0;margin:0;width:100%;height:100%;"></iframe>
