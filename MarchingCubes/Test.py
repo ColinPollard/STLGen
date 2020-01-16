@@ -34,13 +34,11 @@ size = 10
 
 #Create new space to occupy with mesh
 emptyArray = CreatePoints(size,size,size)
+
 #Generate point cloud, specifying random min and max
 randomPoints = VerticalDeltaHash(emptyArray, 0, 16, size, size, size)
+
 #Generate point and face arrays from randomhash
-
-singlePoint = np.zeros((size, size, size))
-singlePoint[1,1,1] = 16
-
 newPoints, newFaces = GenerateSingleCubeMesh(randomPoints, 14, size, size, size)
 
 
