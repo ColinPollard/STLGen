@@ -299,9 +299,10 @@ def GenerateSingleCubeMesh(array, surfaceValue, xMax, yMax, zMax):
 
     # Iterate through Z layer
     for currentz in range (0, zMax-1):
-
+        print (currentz)
         # Iterate through Y Line
         for currenty in range (0, yMax-1):
+            #print("z: " + str(currentz) + " y: " + str(currenty))
 
             #Iterate through X Line
             for currentx in range (0, xMax-1):

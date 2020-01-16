@@ -5,6 +5,7 @@ from stl import mesh
 
 from MarchingCubes.CubeRender import GenerateSingleCubeMesh
 from MarchingCubes.PointGeneration import CreatePoints, VerticalDeltaHash
+from MarchingCubes.TerrainGen import PerlinHash
 
 points = np.array([\
 [-1, -1, -1],
@@ -30,13 +31,13 @@ faces = np.array([
 [0,1,5],
 [0,5,4]])
 
-size = 10
+size = 50
 
 #Create new space to occupy with mesh
 emptyArray = CreatePoints(size,size,size)
 
 #Generate point cloud, specifying random min and max
-randomPoints = VerticalDeltaHash(emptyArray, 0, 16, size, size, size)
+randomPoints = PerlinHash(emptyArray, 0, 16, size, size, size)
 
 #Generate point and face arrays from randomhash
 newPoints, newFaces = GenerateSingleCubeMesh(randomPoints, 14, size, size, size)
