@@ -34,7 +34,7 @@ faces = np.array([
 size = 50
 
 #Create new space to occupy with mesh
-emptyArray = CreatePoints(size,size,size)
+emptyArray = CreatePoints(size+1,size+1,size+1)
 
 #Generate point cloud, specifying random min and max
 randomPoints = PerlinHash(emptyArray, 0, 16, size, size, size)
