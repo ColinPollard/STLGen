@@ -3,9 +3,9 @@
 
 ---
 ### Data Flow
-..* Empty 3D space of points is created as a shape (x,y,z) numpy array.
-..* A hashing function is used to generate "surface" values for each 3D point in space. (x,y,z) => s 
-..* The CubeRenderer then creates a surface using each point above the surface level using the marching cubes technique. 
+* Empty 3D space of points is created as a shape (x,y,z) numpy array.
+* A hashing function is used to generate "surface" values for each 3D point in space. (x,y,z) => s 
+* The CubeRenderer then creates a surface using each point above the surface level using the marching cubes technique. 
 
 ---
 ### Files and Features
